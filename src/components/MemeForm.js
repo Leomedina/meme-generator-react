@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import '../styles/Form.css';
 
-function MemeForm() {
-  const INITIAL_VALUE = { imageUrl: '', topText: '', botText: '' };
-  const [formData, setFormData] = useState(INITIAL_VALUE);
+function MemeForm({ initialFormData, addMeme }) {
+  const [formData, setFormData] = useState(initialFormData);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -16,8 +15,8 @@ function MemeForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Submitted");
-    setFormData(INITIAL_VALUE);
+    addMeme();
+    setFormData(initialFormData);
   }
 
   return (
@@ -28,6 +27,7 @@ function MemeForm() {
         placeholder="Image URl"
         value={formData.imageUrl}
         onChange={handleChange}
+        required
       />
       <input
         type="text"
@@ -35,13 +35,15 @@ function MemeForm() {
         placeholder="Top Text"
         value={formData.topText}
         onChange={handleChange}
+        required
       />
       <input
         type="text"
         name="botText"
         placeholder="Bottom Text"
-        value={formData.bopText}
+        value={formData.botText}
         onChange={handleChange}
+        required
       />
       <button>Submit!</button>
     </form>

@@ -1,12 +1,14 @@
 import React from 'react';
 import './styles/App.css';
-import MemeForm from './components/MemeForm';
+import MemeFormHandler from './components/MemeFormHandler';
+import Memes from './components/Memes';
 
 function App() {
   return (
     <div className="App">
       <h1>Meme Generator</h1>
-      <MemeForm />
+      <MemeFormHandler />
+      <Memes />
     </div>
   );
 }
