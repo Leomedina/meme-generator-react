@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/Form.css';
 
 function MemeForm() {
   const INITIAL_VALUE = { imageUrl: '', topText: '', botText: '' };
