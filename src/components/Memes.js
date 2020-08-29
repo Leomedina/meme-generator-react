@@ -8,7 +8,14 @@ function Memes() {
 
   return (
     <div className="Memes">
-      <p>{memes}</p>
+      {memes.map(meme => {
+        return (
+          <div className="Wrapper" style={{backgroundImage: `url("${meme.imageUrl}")`}}>
+            <p className="topTxt">{meme.topText}</p>
+            <p className="botTxt">{meme.botText}</p>
+          </div>
+        )
+      })}
     </div>
   )
 };
