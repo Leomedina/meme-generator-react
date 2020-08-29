@@ -13,14 +13,14 @@ function MemeForm({ initialFormData, addMeme }) {
     }));
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event, formData) => {
     event.preventDefault();
-    addMeme();
+    addMeme(formData.imageUrl, formData.topText, formData.botText);
     setFormData(initialFormData);
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={() => handleSubmit(formData)}>
       <input
         type="url"
         name="imageUrl"

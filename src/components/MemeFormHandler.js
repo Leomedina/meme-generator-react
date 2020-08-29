@@ -3,13 +3,8 @@ import { useDispatch } from 'react-redux';
 import MemeForm from './MemeForm';
 
 
-function MemeFormHandler() {
+function MemeFormHandler({ addMeme }) {
   const INITIAL_FORM_VALUE = { imageUrl: '', topText: '', botText: '' };
-  const dispatch = useDispatch();
-
-  const addMeme = () => {
-    dispatch({ type: "ADD", payload: "Meme2"});
-  };
 
   return (
     <MemeForm initialFormData={INITIAL_FORM_VALUE} addMeme={addMeme} />
