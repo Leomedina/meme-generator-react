@@ -23,7 +23,7 @@ function rootReducer(state = INITIAL_STATE, action) {
     case 'REMOVE':
       return {
         ...state,
-        memes: [...state.memes.filter(meme => meme.id !== action.payload)]
+        memes: state.memes.filter(meme => meme.id !== action.payload)
       };
     default:
       return state;

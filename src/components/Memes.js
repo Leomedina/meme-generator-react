@@ -7,12 +7,8 @@ function Memes() {
   const dispatch = useDispatch();
 
 
-  const deleteMeme = (event) => {
-    if (event.target.tagName === "IMG" || event.target.tagName === "P" || event.target.tagName === "Div") {
-      event.target.parentElement.remove();
-      dispatch({ type: "REMOVE", payload: parseInt(event.target.parentElement.id) })
-      console.log(memes);
-    };
+  const deleteMeme = (id) => {
+    dispatch({ type: "REMOVE", payload: id })
   };
 
   return (
@@ -22,7 +18,7 @@ function Memes() {
           <div
             className="Wrapper"
             style={{ backgroundImage: `url("${meme.imageUrl}")` }}
-            onClick={deleteMeme}
+            onClick={() => deleteMeme(meme.id)}
             id={meme.id}
           >
             <p className="topTxt">{meme.topText}</p>
